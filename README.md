@@ -1,7 +1,3 @@
-Here's an updated good-looking README file, incorporating Java, Spring Boot, and the specified frontend and database technologies.
-
------
-
 # InsureBot Quest 2025: Intelligent Conversational Insurance Agent 🗣️💼
 
 ## 🚀 Project Overview
