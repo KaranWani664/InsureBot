@@ -6,5 +6,21 @@
   {
     "question": "How do I file a claim?",
     "answer": "You can file a claim by contacting our support team or using the online claims portal."
+  },
+  {
+    "question": "What is insurance?",
+    "answer": "Insurance is a means of protection from financial loss. It is a form of risk management, primarily used to hedge against the risk of a contingent or uncertain loss."
+  },
+  {
+    "question": "What are the main types of insurance?",
+    "answer": "The main types of insurance include life insurance, health insurance, property insurance, auto insurance, and liability insurance."
+  },
+  {
+    "question": "How does insurance work?",
+    "answer": "An entity (the insurer) provides compensation to another (the insured) in the event of certain losses, in exchange for a premium. The insured receives a contract (the policy) detailing the conditions and circumstances under which compensation will be paid."
+  },
+  {
+    "question": "What is a premium?",
+    "answer": "A premium is the amount of money charged by an insurer to provide coverage under a given insurance policy for a certain period of time."
   }
 ] 

@@ -1,2 +1,15 @@
 @import './_variables.scss';
-body { background: #f5f5f5; } 
+
+body {
+  background: $background-color;
+  color: $text-color;
+}
+
+.chat-area {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  padding: 2rem;
+  max-width: 480px;
+  margin: 2rem auto;
+} 

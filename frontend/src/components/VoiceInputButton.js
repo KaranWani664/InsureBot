@@ -15,7 +15,7 @@ function VoiceInputButton({ onVoiceInput }) {
     recognition.start();
   };
   return (
-    <button onClick={handleVoiceInput} style={{ marginLeft: 8 }} title="Voice Input">
+    <button onClick={handleVoiceInput} style={{ marginLeft: 8 }} title="Voice Input" aria-label="Voice input">
       🎤
     </button>
   );

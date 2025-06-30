@@ -24,10 +24,11 @@ function TextInput({ onSend }) {
         value={text}
         onChange={e => setText(e.target.value)}
         style={{ flex: 1, padding: 8, borderRadius: 8, border: '1px solid #ccc' }}
-        placeholder="Type your message..."
+        placeholder="Type your message or use the mic..."
+        aria-label="Type your message"
         onKeyDown={e => { if (e.key === 'Enter') handleSend(); }}
       />
-      <button onClick={handleSend} style={{ marginLeft: 8 }}>Send</button>
+      <button onClick={handleSend} style={{ marginLeft: 8 }} aria-label="Send message">Send</button>
       <VoiceInputButton onVoiceInput={handleVoiceInput} />
     </div>
   );

@@ -1,1 +1,24 @@
- 
+@import './_variables.scss';
+
+.message-bubble {
+  display: inline-block;
+  background: $primary-color;
+  color: #fff;
+  border-radius: 16px;
+  padding: 0.5rem 1rem;
+  max-width: 70%;
+  margin: 0.5rem 0;
+}
+
+.button {
+  background: $primary-color;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.button:hover {
+  background: $secondary-color;
+} 
