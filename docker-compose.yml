@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  backend:
+    build: ./backend
+    image: insurebot-backend:latest
+    ports:
+      - "8080:8080"
+    environment:
+      # - SPRING_DATASOURCE_URL=jdbc:oracle:thin:@oracle-db:1521:ORCLCDB
+      # - SPRING_DATASOURCE_USERNAME=your_oracle_user
+      # - SPRING_DATASOURCE_PASSWORD=your_oracle_password
+      # - GOOGLE_CLOUD_API_KEY=your_google_cloud_api_key
+    depends_on:
+      - oracle-db
+  frontend:
+    build: ./frontend
+    image: insurebot-frontend:latest
+    ports:
+      - "3000:3000"
+    environment:
+      # - REACT_APP_API_BASE_URL=http://localhost:8080/api
+    depends_on:
+      - backend
+  oracle-db:
+    image: gvenzl/oracle-xe:21.3.0-slim
+    ports:
+      - "1521:1521"
+    environment:
+      - ORACLE_PASSWORD=your_oracle_password
+    # For production, use persistent storage and secure credentials 

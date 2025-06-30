@@ -1,0 +1,12 @@
+[
+  {
+    "product": "Comprehensive Car Insurance",
+    "description": "Covers damage to your car, third-party liability, theft, and natural disasters.",
+    "coverage": ["Accident damage", "Theft", "Fire", "Flood", "Third-party liability"]
+  },
+  {
+    "product": "Health Insurance Plus",
+    "description": "Provides coverage for hospitalization, surgeries, and critical illnesses.",
+    "coverage": ["Hospitalization", "Surgery", "Critical illness", "Day care procedures"]
+  }
+] 

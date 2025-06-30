@@ -1,0 +1,42 @@
+# Java
+/target/
+*.class
+*.jar
+*.war
+*.iml
+
+# Maven
+/logs/
+/.mvn/
+!/.mvn/wrapper/maven-wrapper.jar
+
+# Node
+node_modules/
+build/
+dist/
+.env
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+
+# Docker
+*.log
+docker-compose.override.yml
+
+# Kubernetes
+kubernetes/secrets.yaml
+
+# Misc
+*.log
+*.tmp
+*.bak
+
+# Ignore demo video placeholder
+/demo_video.mp4 

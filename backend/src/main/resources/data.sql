@@ -1,0 +1,1 @@
+INSERT INTO POLICY (policy_number, coverage) VALUES ('POL123456', 'Comprehensive'); 

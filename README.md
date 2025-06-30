@@ -1,3 +1,6 @@
+<!--
+NOTE: This is a scaffolded monorepo for InsureBot Quest 2025. The codebase is under active development. Some files are placeholders or stubs and will be implemented in detail as the project progresses.
+-->
 Here's an updated good-looking README file, incorporating Java, Spring Boot, and the specified frontend and database technologies.
 
 -----
