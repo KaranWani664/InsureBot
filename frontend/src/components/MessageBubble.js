@@ -1,27 +1,15 @@
 import React from 'react';
+import '../styles/components.scss';
 
 function MessageBubble({ sender, content }) {
   const isUser = sender === 'user';
   return (
     <div
-      style={{
-        textAlign: isUser ? 'right' : 'left',
-        margin: '0.5rem 0'
-      }}
+      className={`message-bubble ${isUser ? 'user' : 'bot'} fade-in`}
+      style={{ textAlign: isUser ? 'right' : 'left' }}
       aria-label={isUser ? 'User message' : 'Bot message'}
     >
-      <span
-        style={{
-          display: 'inline-block',
-          background: isUser ? '#1976d2' : '#eee',
-          color: isUser ? '#fff' : '#333',
-          borderRadius: 16,
-          padding: '0.5rem 1rem',
-          maxWidth: '70%'
-        }}
-      >
-        {content}
-      </span>
+      {content}
     </div>
   );
 }

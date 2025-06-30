@@ -2,23 +2,53 @@
 
 .message-bubble {
   display: inline-block;
-  background: $primary-color;
-  color: #fff;
-  border-radius: 16px;
-  padding: 0.5rem 1rem;
+  border-radius: 18px;
+  padding: 0.6rem 1.2rem;
   max-width: 70%;
   margin: 0.5rem 0;
+  font-family: $font-family;
+  font-size: 1.05rem;
+  box-shadow: $card-shadow;
+}
+
+.message-bubble.user {
+  background: $user-bubble-bg;
+  color: $user-bubble-text;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.message-bubble.bot {
+  background: $bot-bubble-bg;
+  color: $bot-bubble-text;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
 }
 
 .button {
-  background: $primary-color;
+  background: $accent-color;
   color: #fff;
   border: none;
   border-radius: 8px;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.2rem;
   cursor: pointer;
-  transition: background 0.2s;
+  font-family: $font-family;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: $card-shadow;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
 }
 .button:hover {
-  background: $secondary-color;
+  background: $primary-color;
+  box-shadow: 0 6px 32px rgba(25, 118, 210, 0.12);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 } 
