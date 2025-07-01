@@ -22,7 +22,7 @@ function ChatWindow() {
   };
 
   return (
-    <div>
+    <div className="chat-window">
       <div style={{ minHeight: 200 }}>
         {messages.map((msg, idx) => (
           <MessageBubble key={idx} sender={msg.sender} content={msg.content} />
