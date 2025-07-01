@@ -1,25 +1,40 @@
 import React, { useState } from 'react';
 import './AuthButton.css';
+import { GoogleLogin } from '@react-oauth/google';
 
 const AuthButton = ({ isAuthenticated, setIsAuthenticated }) => {
   const [showModal, setShowModal] = useState(false);
   const [isRegister, setIsRegister] = useState(false);
   const [form, setForm] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleInputChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const validateEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
   const handleLogin = (e) => {
     e.preventDefault();
-    if (form.username && form.password) {
+    setError('');
+    if (!form.username || !form.password) {
+      setError('Please enter both email and password.');
+      return;
+    }
+    if (!validateEmail(form.username)) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+    setLoading(true);
+    setTimeout(() => {
       setIsAuthenticated(true);
       setShowModal(false);
       setError('');
-    } else {
-      setError('Please enter username and password.');
-    }
+      setLoading(false);
+    }, 1000);
   };
 
   const handleLogout = () => {
@@ -43,14 +58,28 @@ const AuthButton = ({ isAuthenticated, setIsAuthenticated }) => {
         <div className="modal-backdrop" onClick={() => setShowModal(false)}>
           <div className="modal" onClick={e => e.stopPropagation()}>
             <h2>{isRegister ? 'Register' : 'Login'}</h2>
-            <form onSubmit={handleLogin}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
+              <GoogleLogin
+                onSuccess={() => {
+                  setIsAuthenticated(true);
+                  setShowModal(false);
+                }}
+                onError={() => setError('Google login failed.')}
+                width="260"
+                theme="filled_blue"
+                shape="pill"
+              />
+            </div>
+            <form onSubmit={handleLogin} aria-label={isRegister ? 'Register form' : 'Login form'}>
               <input
-                type="text"
+                type="email"
                 name="username"
-                placeholder="Username"
+                placeholder="Email"
                 value={form.username}
                 onChange={handleInputChange}
                 autoFocus
+                aria-label="Email"
+                required
               />
               <input
                 type="password"
@@ -58,9 +87,11 @@ const AuthButton = ({ isAuthenticated, setIsAuthenticated }) => {
                 placeholder="Password"
                 value={form.password}
                 onChange={handleInputChange}
+                aria-label="Password"
+                required
               />
-              {error && <div className="error-msg">{error}</div>}
-              <button type="submit">{isRegister ? 'Register' : 'Login'}</button>
+              {error && <div className="error-msg" role="alert">{error}</div>}
+              <button type="submit" disabled={loading}>{loading ? 'Please wait...' : (isRegister ? 'Register' : 'Login')}</button>
             </form>
             <div className="toggle-link">
               {isRegister ? (

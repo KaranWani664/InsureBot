@@ -39,19 +39,19 @@ public class GeminiService {
         HttpEntity<Map<String, Object>> request = new HttpEntity<>(payload, headers);
 
         try {
-            ResponseEntity<Map> response = restTemplate.postForEntity(url, request, Map.class);
-            Map responseBody = response.getBody();
-
-            // Extract response text
-            List candidates = (List) responseBody.get("candidates");
+            ResponseEntity<Map<String, Object>> response = restTemplate.postForEntity(url, request, (Class<Map<String, Object>>)(Class<?>)Map.class);
+            Map<String, Object> responseBody = response.getBody();
+            if (responseBody == null) {
+                return "No response from Gemini.";
+            }
+            List<Map<String, Object>> candidates = (List<Map<String, Object>>) responseBody.get("candidates");
             if (candidates != null && !candidates.isEmpty()) {
-                Map candidate = (Map) candidates.get(0);
-                Map content = (Map) candidate.get("content");
-                List parts = (List) content.get("parts");
-                Map firstPart = (Map) parts.get(0);
+                Map<String, Object> candidate = candidates.get(0);
+                Map<String, Object> content = (Map<String, Object>) candidate.get("content");
+                List<Map<String, Object>> parts = (List<Map<String, Object>>) content.get("parts");
+                Map<String, Object> firstPart = parts.get(0);
                 return (String) firstPart.get("text");
             }
-
             return "No response from Gemini.";
         } catch (Exception e) {
             return "Error calling Gemini: " + e.getMessage();

@@ -54,7 +54,7 @@ const ModernSidebar = () => {
             <ul>
               {section.items.map(item => (
                 <li key={item.label}>
-                  <a href={item.href} className="sidebar-link">
+                  <a href={item.href} className="sidebar-link" onClick={item.label === 'Help Center' || item.label === 'Contact' || item.label === 'Live Chat' ? (e) => { e.preventDefault(); openChatbot('chat'); } : undefined}>
                     <span className="sidebar-icon">{item.icon}</span>
                     {!collapsed && <span>{item.label}</span>}
                   </a>

@@ -35,7 +35,7 @@ const Footer = () => {
                 <li><a href="#claims">File a Claim</a></li>
                 <li><a href="#policies">View Policies</a></li>
                 <li><a href="#payments">Make Payment</a></li>
-                <li><a href="#support">Customer Support</a></li>
+                <li><a href="#support" onClick={e => { e.preventDefault(); openChatbot('chat'); }}>Customer Support</a></li>
                 <li><a href="#terms">Terms & Conditions</a></li>
               </ul>
             </div>

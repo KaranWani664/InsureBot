@@ -17,8 +17,8 @@ const ModernHeader = ({ isAuthenticated }) => {
           <a href="#home">Home</a>
           <a href="#products">Products</a>
           <a href="#claims">Claims</a>
-          <a href="#support">Support</a>
-          <a href="#contact">Contact</a>
+          <a href="#support" onClick={e => { e.preventDefault(); openChatbot('chat'); }}>Support</a>
+          <a href="#contact" onClick={e => { e.preventDefault(); openChatbot('chat'); }}>Contact</a>
         </nav>
         <div className="header-actions">
           {isAuthenticated && <NotificationTab />}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import MessageBubble from './MessageBubble';
 import TextInput from './TextInput';
 import { sendMessage } from '../services/chatService';
@@ -10,6 +10,7 @@ function ChatWindow() {
   const [loading, setLoading] = useState(false);
   const [mode, setMode] = useState('chat'); // 'chat' or 'voice'
   const [listening, setListening] = useState(false);
+  const chatRef = useRef(null);
 
   // Speak bot replies in voice mode
   useEffect(() => {
@@ -22,6 +23,25 @@ function ChatWindow() {
     }
     // eslint-disable-next-line
   }, [messages, mode]);
+
+  // Stop speech synthesis when switching to chat mode
+  useEffect(() => {
+    if (mode === 'chat') {
+      window.speechSynthesis.cancel();
+    }
+  }, [mode]);
+
+  // Stop speech synthesis if clicking outside chat window in voice mode
+  useEffect(() => {
+    if (mode !== 'voice') return;
+    function handleClickOutside(e) {
+      if (chatRef.current && !chatRef.current.contains(e.target)) {
+        window.speechSynthesis.cancel();
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [mode]);
 
   const handleSend = async (text) => {
     setMessages(prev => [...prev, { sender: 'user', content: text }]);
@@ -55,7 +75,7 @@ function ChatWindow() {
   };
 
   return (
-    <div className="chat-window">
+    <div className="chat-window" ref={chatRef}>
       {/* Toggle Button */}
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 16 }}>
         <button
