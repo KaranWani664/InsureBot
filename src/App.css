@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  max-width: 480px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
+
+.App h1 {
+  color: #1976d2;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+@media (max-width: 600px) {
+  .App {
+    padding: 1rem;
+    margin: 0.5rem;
+    max-width: 100vw;
+    border-radius: 0;
+  }
+  .App h1 {
+    font-size: 1.2rem;
+  }
+} 
