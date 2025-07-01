@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import NotificationTab from './NotificationTab';
 import './AuthButton.css';
 
-const AuthButton = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+const AuthButton = ({ isAuthenticated, setIsAuthenticated }) => {
   const [showModal, setShowModal] = useState(false);
   const [isRegister, setIsRegister] = useState(false);
   const [form, setForm] = useState({ username: '', password: '' });
@@ -33,7 +31,6 @@ const AuthButton = () => {
     <div className="auth-button-container">
       {isAuthenticated ? (
         <div className="profile-section">
-          <NotificationTab />
           <button className="profile-btn">Profile</button>
           <button className="logout-btn" onClick={handleLogout}>Logout</button>
         </div>

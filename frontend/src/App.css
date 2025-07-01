@@ -70,12 +70,28 @@ body {
 
 /* Chat Window Styling */
 .chat-window {
+  position: fixed;
+  right: 32px;
+  bottom: 120px;
+  width: 360px;
+  max-width: 90vw;
   background: white;
-  margin: 2rem auto;
-  max-width: 800px;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(30, 58, 138, 0.18), 0 1.5px 6px rgba(30, 58, 138, 0.08);
   overflow: hidden;
+  z-index: 1000;
+  animation: chatbot-popin 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes chatbot-popin {
+  from {
+    transform: translateY(40px) scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
 }
 
 /* Responsive Design */

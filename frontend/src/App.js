@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
+import React from 'react';
+import ModernHeader from './components/ModernHeader';
+import ModernSidebar from './components/ModernSidebar';
 import AuthButton from './components/AuthButton';
 import ChatWindow from './components/ChatWindow';
 import PoliciesSection from './components/PoliciesSection';
@@ -11,7 +11,8 @@ import ChatbotButton from './components/ChatbotButton';
 import './App.css';
 
 function App() {
-  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isChatOpen, setIsChatOpen] = React.useState(false);
+  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
 
   const handleToggleChat = (isOpen) => {
     setIsChatOpen(isOpen);
@@ -19,9 +20,8 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <Sidebar />
-      
+      <ModernHeader isAuthenticated={isAuthenticated} />
+      <ModernSidebar />
       <main className="main-content">
         <section id="home" className="hero-section">
           <div className="container hero-grid">
@@ -35,17 +35,15 @@ function App() {
               <div className="login-highlight-card">
                 <h3>Member Login / Register</h3>
                 <p className="login-desc">Access your policies, manage claims, and get personalized support.</p>
-                <AuthButton />
+                <AuthButton isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />
               </div>
             </div>
           </div>
         </section>
-        
         {isChatOpen && <ChatWindow />}
         <PoliciesSection />
         <TermsConditions />
       </main>
-      
       <Footer />
       <ScrollToTop />
       <ChatbotButton onToggleChat={handleToggleChat} />

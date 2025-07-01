@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import VoiceInputButton from './VoiceInputButton';
 
 function TextInput({ onSend }) {
   const [text, setText] = useState('');
@@ -29,7 +28,6 @@ function TextInput({ onSend }) {
         onKeyDown={e => { if (e.key === 'Enter') handleSend(); }}
       />
       <button onClick={handleSend} style={{ marginLeft: 8 }} aria-label="Send message">Send</button>
-      <VoiceInputButton onVoiceInput={handleVoiceInput} />
     </div>
   );
 }
