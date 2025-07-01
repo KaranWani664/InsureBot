@@ -1,0 +1,159 @@
+.terms-section {
+  padding: 4rem 0;
+  background: #f8fafc;
+}
+
+.terms-content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.terms-sidebar {
+  position: sticky;
+  top: 2rem;
+  height: fit-content;
+}
+
+.terms-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-item {
+  background: white;
+  border: 1px solid #e5e7eb;
+  padding: 1rem 1.5rem;
+  text-align: left;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  color: #374151;
+}
+
+.nav-item:hover {
+  background: #f3f4f6;
+  border-color: #1e3a8a;
+}
+
+.nav-item.active {
+  background: #1e3a8a;
+  color: white;
+  border-color: #1e3a8a;
+}
+
+.terms-main {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.terms-panel {
+  display: none;
+}
+
+.terms-panel.active {
+  display: block;
+}
+
+.terms-panel h3 {
+  color: #1e3a8a;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.terms-content-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.terms-item h4 {
+  color: #374151;
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.terms-item p {
+  color: #6b7280;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.terms-footer {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.legal-notice h4,
+.contact-legal h4 {
+  color: #1e3a8a;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.legal-notice p,
+.contact-legal p {
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.contact-info span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #1e3a8a;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .terms-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .terms-sidebar {
+    position: static;
+  }
+  
+  .terms-nav {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+  
+  .nav-item {
+    white-space: nowrap;
+    min-width: 150px;
+  }
+  
+  .terms-footer {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .terms-main {
+    padding: 1.5rem;
+  }
+} 

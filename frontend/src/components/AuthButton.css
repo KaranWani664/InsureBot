@@ -1,0 +1,92 @@
+.auth-button-container {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.login-btn, .profile-btn, .logout-btn {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+.logout-btn {
+  background: #dc3545;
+}
+
+.login-btn:hover, .profile-btn:hover, .logout-btn:hover {
+  background: #0056b3;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+  min-width: 300px;
+  position: relative;
+}
+
+.modal h2 {
+  margin-top: 0;
+}
+
+.modal input {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modal button[type="submit"] {
+  width: 100%;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.toggle-link {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.toggle-link button {
+  background: none;
+  color: #007bff;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 1rem;
+}
+
+.error-msg {
+  color: #dc3545;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+} 

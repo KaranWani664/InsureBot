@@ -8,17 +8,133 @@ body {
 }
 
 .App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 280px;
+  transition: margin-left 0.3s ease;
+}
+
+.main-content.sidebar-collapsed {
+  margin-left: 60px;
+}
+
+.hero-section {
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  color: white;
+  padding: 4rem 0;
   text-align: center;
-  padding: 2rem;
-  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
-  max-width: 480px;
-  margin: 2rem auto;
-  background: #fff;
-  border-radius: 24px;
-  box-shadow: 0 6px 32px rgba(25, 118, 210, 0.10);
   position: relative;
-  z-index: 2;
   overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.3;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-tagline {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+.auth-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Chat Window Styling */
+.chat-window {
+  background: white;
+  margin: 2rem auto;
+  max-width: 800px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-tagline {
+    font-size: 1.2rem;
+  }
+  
+  .hero-section {
+    padding: 3rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-tagline {
+    font-size: 1rem;
+  }
+}
+
+/* Global container styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e3a8a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1e40af;
 }
 
 .App h1 {
@@ -67,5 +183,114 @@ main {
   }
   .App h1 {
     font-size: 1.2rem;
+  }
+}
+
+.hero-grid {
+  display: flex;
+  gap: 3rem;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.hero-left {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.login-highlight-card {
+  background: linear-gradient(135deg, #fffbe6 0%, #fbbf24 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(251, 191, 36, 0.15), 0 1.5px 6px rgba(30, 58, 138, 0.08);
+  padding: 2.5rem 2rem 2rem 2rem;
+  min-width: 320px;
+  max-width: 350px;
+  border: 2px solid #fbbf24;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.login-highlight-card h3 {
+  color: #b45309;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.login-desc {
+  color: #92400e;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.contact-block {
+  background: rgba(30, 58, 138, 0.08);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin-top: 2rem;
+  box-shadow: 0 2px 8px rgba(30, 58, 138, 0.07);
+  color: #1e3a8a;
+  max-width: 400px;
+}
+
+.contact-block h3 {
+  margin-top: 0;
+  color: #1e3a8a;
+  font-size: 1.1rem;
+  margin-bottom: 0.7rem;
+}
+
+.contact-block p {
+  margin: 0.3rem 0;
+  font-size: 1rem;
+  color: #1e3a8a;
+}
+
+@media (max-width: 1024px) {
+  .hero-grid {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .hero-right {
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  .login-highlight-card {
+    min-width: 260px;
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-grid {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .login-highlight-card {
+    padding: 1.5rem 1rem 1rem 1rem;
+    min-width: unset;
+    max-width: 100%;
+  }
+  .contact-block {
+    padding: 1rem 1rem;
+    max-width: 100%;
   }
 } 

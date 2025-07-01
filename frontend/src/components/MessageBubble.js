@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/components.scss';
 
 function MessageBubble({ sender, content }) {
   const isUser = sender === 'user';
