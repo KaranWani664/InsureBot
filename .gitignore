@@ -9,13 +9,13 @@
 /logs/
 /.mvn/
 !/.mvn/wrapper/maven-wrapper.jar
+backend/target/
 
 # Node
 node_modules/
 build/
 dist/
-.env
-.env.*
+
 
 # OS
 .DS_Store
