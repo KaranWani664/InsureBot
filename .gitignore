@@ -10,6 +10,7 @@
 /.mvn/
 !/.mvn/wrapper/maven-wrapper.jar
 backend/target/
+backend/src/main/resources/application.properties
 
 # Node
 node_modules/
