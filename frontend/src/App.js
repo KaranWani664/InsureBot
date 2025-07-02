@@ -8,7 +8,6 @@ import TermsConditions from './components/TermsConditions';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import ChatbotButton from './components/ChatbotButton';
-import { GoogleOAuthProvider } from '@react-oauth/google';
 import './App.css';
 
 function App() {
@@ -27,37 +26,35 @@ function App() {
   };
 
   return (
-    <GoogleOAuthProvider clientId="YOUR_GOOGLE_CLIENT_ID">
-      <div className="App">
-        <ModernHeader isAuthenticated={isAuthenticated} openChatbot={openChatbot} />
-        <ModernSidebar openChatbot={openChatbot} />
-        <main className="main-content">
-          <section id="home" className="hero-section">
-            <div className="container hero-grid">
-              <div className="hero-left">
-                <div className="hero-content">
-                  <h1>🛡️ InsureBot Quest 2025</h1>
-                  <p className="hero-tagline">Your friendly insurance assistant</p>
-                </div>
-              </div>
-              <div className="hero-right">
-                <div className="login-highlight-card">
-                  <h3>Member Login / Register</h3>
-                  <p className="login-desc">Access your policies, manage claims, and get personalized support.</p>
-                  <AuthButton isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />
-                </div>
+    <div className="App">
+      <ModernHeader isAuthenticated={isAuthenticated} openChatbot={openChatbot} />
+      <ModernSidebar openChatbot={openChatbot} />
+      <main className="main-content">
+        <section id="home" className="hero-section">
+          <div className="container hero-grid">
+            <div className="hero-left">
+              <div className="hero-content">
+                <h1>🛡️ InsureBot Quest 2025</h1>
+                <p className="hero-tagline">Your friendly insurance assistant</p>
               </div>
             </div>
-          </section>
-          {isChatOpen && <ChatWindow mode={chatMode} />}
-          <PoliciesSection />
-          <TermsConditions />
-        </main>
-        <Footer openChatbot={openChatbot} />
-        <ScrollToTop />
-        <ChatbotButton onToggleChat={handleToggleChat} />
-      </div>
-    </GoogleOAuthProvider>
+            <div className="hero-right">
+              <div className="login-highlight-card">
+                <h3>Member Login / Register</h3>
+                <p className="login-desc">Access your policies, manage claims, and get personalized support.</p>
+                <AuthButton isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />
+              </div>
+            </div>
+          </div>
+        </section>
+        {isChatOpen && <ChatWindow mode={chatMode} />}
+        <PoliciesSection />
+        <TermsConditions />
+      </main>
+      <Footer openChatbot={openChatbot} />
+      <ScrollToTop />
+      <ChatbotButton onToggleChat={handleToggleChat} />
+    </div>
   );
 }
 

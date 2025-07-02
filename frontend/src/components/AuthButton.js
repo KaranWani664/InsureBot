@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './AuthButton.css';
-import { GoogleLogin } from '@react-oauth/google';
 
 const AuthButton = ({ isAuthenticated, setIsAuthenticated }) => {
   const [showModal, setShowModal] = useState(false);
@@ -58,18 +57,6 @@ const AuthButton = ({ isAuthenticated, setIsAuthenticated }) => {
         <div className="modal-backdrop" onClick={() => setShowModal(false)}>
           <div className="modal" onClick={e => e.stopPropagation()}>
             <h2>{isRegister ? 'Register' : 'Login'}</h2>
-            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
-              <GoogleLogin
-                onSuccess={() => {
-                  setIsAuthenticated(true);
-                  setShowModal(false);
-                }}
-                onError={() => setError('Google login failed.')}
-                width="260"
-                theme="filled_blue"
-                shape="pill"
-              />
-            </div>
             <form onSubmit={handleLogin} aria-label={isRegister ? 'Register form' : 'Login form'}>
               <input
                 type="email"

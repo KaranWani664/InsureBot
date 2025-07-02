@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import MessageBubble from './MessageBubble';
 import TextInput from './TextInput';
 import { sendMessage } from '../services/chatService';
+import './ChatWindow.css';
 
 function ChatWindow() {
   const [messages, setMessages] = useState([
@@ -114,43 +115,56 @@ function ChatWindow() {
           Voice
         </button>
       </div>
-
-      {/* Chat/Voice Interface */}
-      <div style={{ minHeight: 200 }}>
-        {messages.map((msg, idx) => (
-          <MessageBubble key={idx} sender={msg.sender} content={msg.content} />
-        ))}
-        {loading && <MessageBubble sender="bot" content="..." />}
-      </div>
-      {mode === 'chat' ? (
-        <TextInput onSend={handleSend} />
-      ) : (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 24 }}>
-          <button
-            onClick={handleVoiceInput}
-            style={{
-              width: 64,
-              height: 64,
-              borderRadius: '50%',
-              background: listening ? '#3b82f6' : '#1e3a8a',
-              color: '#fff',
-              fontSize: 32,
-              border: 'none',
-              boxShadow: listening ? '0 0 0 4px #3b82f655' : 'none',
-              cursor: 'pointer',
-              marginBottom: 8,
-              transition: 'background 0.2s, box-shadow 0.2s',
-            }}
-            aria-label="Start voice input"
-            disabled={listening}
-          >
-            🎤
-          </button>
-          <span style={{ color: '#888', fontSize: 14 }}>
-            {listening ? 'Listening...' : 'Tap mic and speak your question'}
-          </span>
+      <div className="chat-content-flex" style={{display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0}}>
+        <div className="chat-messages-area">
+          {messages.map((msg, idx) => (
+            <MessageBubble key={idx} sender={msg.sender} content={msg.content} />
+          ))}
+          {loading && <MessageBubble sender="bot" content="..." />}
         </div>
-      )}
+        {mode === 'chat' ? (
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 24 }}>
+            <div style={{
+              background: '#f3f4f6',
+              borderRadius: 12,
+              padding: '16px 12px',
+              boxShadow: '0 2px 8px rgba(30,58,138,0.07)',
+              width: '100%',
+              maxWidth: 320,
+              display: 'flex',
+              justifyContent: 'center',
+            }}>
+              <TextInput onSend={handleSend} />
+            </div>
+          </div>
+        ) : (
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 24 }}>
+            <button
+              onClick={handleVoiceInput}
+              style={{
+                width: 64,
+                height: 64,
+                borderRadius: '50%',
+                background: listening ? '#3b82f6' : '#1e3a8a',
+                color: '#fff',
+                fontSize: 32,
+                border: 'none',
+                boxShadow: listening ? '0 0 0 4px #3b82f655' : 'none',
+                cursor: 'pointer',
+                marginBottom: 8,
+                transition: 'background 0.2s, box-shadow 0.2s',
+              }}
+              aria-label="Start voice input"
+              disabled={listening}
+            >
+              🎤
+            </button>
+            <span style={{ color: '#888', fontSize: 14 }}>
+              {listening ? 'Listening...' : 'Tap mic and speak your question'}
+            </span>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

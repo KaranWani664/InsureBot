@@ -17,17 +17,16 @@ function TextInput({ onSend }) {
   };
 
   return (
-    <div style={{ display: 'flex', marginTop: 16 }}>
+    <div className="chat-input-row">
       <input
         type="text"
         value={text}
         onChange={e => setText(e.target.value)}
-        style={{ flex: 1, padding: 8, borderRadius: 8, border: '1px solid #ccc' }}
         placeholder="Type your message or use the mic..."
         aria-label="Type your message"
         onKeyDown={e => { if (e.key === 'Enter') handleSend(); }}
       />
-      <button onClick={handleSend} style={{ marginLeft: 8 }} aria-label="Send message">Send</button>
+      <button onClick={handleSend} aria-label="Send message">Send</button>
     </div>
   );
 }
