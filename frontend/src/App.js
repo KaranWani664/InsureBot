@@ -14,6 +14,7 @@ function App() {
   const [isChatOpen, setIsChatOpen] = React.useState(false);
   const [isAuthenticated, setIsAuthenticated] = React.useState(false);
   const [chatMode, setChatMode] = React.useState('chat'); // 'chat' or 'voice'
+  const [sidebarMobileOpen, setSidebarMobileOpen] = React.useState(false);
 
   const handleToggleChat = (isOpen) => {
     setIsChatOpen(isOpen);
@@ -25,10 +26,17 @@ function App() {
     setChatMode(mode);
   };
 
+  const handleSidebarToggle = () => {
+    setSidebarMobileOpen((open) => !open);
+  };
+  const handleSidebarClose = () => {
+    setSidebarMobileOpen(false);
+  };
+
   return (
     <div className="App">
-      <ModernHeader isAuthenticated={isAuthenticated} openChatbot={openChatbot} />
-      <ModernSidebar openChatbot={openChatbot} />
+      <ModernHeader isAuthenticated={isAuthenticated} onSidebarToggle={handleSidebarToggle} />
+      <ModernSidebar isMobileOpen={sidebarMobileOpen} onClose={handleSidebarClose} />
       <main className="main-content">
         <section id="home" className="hero-section">
           <div className="container hero-grid">

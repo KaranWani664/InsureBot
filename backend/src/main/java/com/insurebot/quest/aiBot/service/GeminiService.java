@@ -1,4 +1,4 @@
-package com.insurebot.quest.service;
+package com.insurebot.quest.aiBot.service;
 
 import java.util.List;
 import java.util.Map;
@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.insurebot.quest.config.GeminiConfig;
+import com.insurebot.quest.aiBot.config.GeminiConfig;
 
 @Service
 public class GeminiService {
@@ -56,5 +56,10 @@ public class GeminiService {
         } catch (Exception e) {
             return "Error calling Gemini: " + e.getMessage();
         }
+    }
+
+    public String askGeminiWithContext(String userPrompt, String context) {
+        String prompt = context != null && !context.isEmpty() ? context + "\n" + userPrompt : userPrompt;
+        return askGemini(prompt);
     }
 }

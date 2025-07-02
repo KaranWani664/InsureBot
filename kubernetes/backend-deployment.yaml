@@ -14,26 +14,16 @@ spec:
     spec:
       containers:
         - name: insurebot-backend
-          image: your-dockerhub-username/insurebot-backend:latest # Replace with your image
+          image: insurebot-backend:latest # Use local image for Minikube
           ports:
             - containerPort: 8080
           env:
-            # Use Kubernetes secrets for sensitive data in production
-            - name: SPRING_DATASOURCE_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: oracle-credentials
-                  key: username
-            - name: SPRING_DATASOURCE_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: oracle-credentials
-                  key: password
             - name: SPRING_DATASOURCE_URL
-              valueFrom:
-                secretKeyRef:
-                  name: oracle-credentials
-                  key: url
+              value: jdbc:mysql://mysql-db:3306/insurebot
+            - name: SPRING_DATASOURCE_USERNAME
+              value: your_mysql_user
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: your_mysql_password
             - name: GOOGLE_CLOUD_API_KEY
               valueFrom:
                 secretKeyRef:

@@ -1,4 +1,4 @@
-package com.insurebot.quest.model;
+package com.insurebot.quest.aiBot.model;
 
 import jakarta.persistence.*;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.insurebot.quest.config;
+package com.insurebot.quest.aiBot.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

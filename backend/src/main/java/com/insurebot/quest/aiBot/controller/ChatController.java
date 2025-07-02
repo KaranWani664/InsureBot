@@ -1,6 +1,6 @@
-package com.insurebot.quest.controller;
+package com.insurebot.quest.aiBot.controller;
 
-import com.insurebot.quest.service.ConversationService;
+import com.insurebot.quest.aiBot.service.ConversationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

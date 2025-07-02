@@ -1,4 +1,4 @@
-package com.insurebot.quest.service;
+package com.insurebot.quest.aiBot.service;
 
 import org.springframework.stereotype.Service;
 

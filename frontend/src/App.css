@@ -15,8 +15,8 @@ body {
 
 .main-content {
   flex: 1;
-  margin-left: 280px;
-  transition: margin-left 0.3s ease;
+  margin-left: 260px;
+  transition: margin-left 0.3s cubic-bezier(0.4,0,0.2,1);
 }
 
 .main-content.sidebar-collapsed {
@@ -308,5 +308,11 @@ main {
   .contact-block {
     padding: 1rem 1rem;
     max-width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .main-content {
+    margin-left: 0;
   }
 } 

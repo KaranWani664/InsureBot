@@ -1,1 +1,5 @@
-{}
+{
+  "dependencies": {
+    "react-swipeable": "^6.2.2"
+  }
+}
