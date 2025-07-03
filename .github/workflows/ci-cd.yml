@@ -23,11 +23,6 @@ jobs:
         run: mvn clean package --file pom.xml
       - name: Run backend tests
         run: mvn test
-      # - name: Build and push Docker image (future)
-      #   run: |
-      #     docker build -t your-dockerhub-username/insurebot-backend:latest .
-      #     echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-      #     docker push your-dockerhub-username/insurebot-backend:latest
 
   build-frontend:
     runs-on: ubuntu-latest
@@ -45,9 +40,4 @@ jobs:
       - name: Build frontend
         run: npm run build
       - name: Run frontend tests
-        run: npm test
-      # - name: Build and push Docker image (future)
-      #   run: |
-      #     docker build -t your-dockerhub-username/insurebot-frontend:latest .
-      #     echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-      #     docker push your-dockerhub-username/insurebot-frontend:latest 
+        run: npm test 
